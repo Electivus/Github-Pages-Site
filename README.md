@@ -1,6 +1,6 @@
 # Site da organização (GitHub Pages)
 
-Este diretório contém um site estático pronto para ser publicado no GitHub Pages da organização.
+Este diretório contém um site estático pronto para ser publicado no GitHub Pages da organização. A publicação foi ajustada para usar o build via GitHub Actions com a versão mais recente do Jekyll (em vez do pacote `github-pages` fixo do Pages).
 
 ## Como publicar
 
@@ -30,10 +30,16 @@ Este diretório contém um site estático pronto para ser publicado no GitHub Pa
    git push -u origin main
    ```
 
-4) Ative o GitHub Pages
+4) Ative o GitHub Pages (via Actions)
 
-   - Em `Settings` → `Pages`, escolha `Source: Deploy from a branch` (branch `main`, pasta `/root`).
+   - Em `Settings` → `Pages`:
+     - Em "Build and deployment", selecione `Source: GitHub Actions`.
+     - O workflow `.github/workflows/jekyll.yml` já faz o build com Jekyll mais recente e publica no Pages.
    - Garanta que o campo `Custom domain` esteja `electivus.com`. Salve e ative `Enforce HTTPS` quando disponível.
+
+   Observações:
+   - O build usa Ruby 3.3 e `jekyll ~> 4.3` (definido no `Gemfile`).
+   - Arquivos estáticos existentes (por exemplo, `index.html`, `assets/`) continuam funcionado normalmente; o Jekyll apenas copia para `_site`.
 
 ## Personalização
 
@@ -48,6 +54,11 @@ github-pages-site/
 ├─ index.html
 ├─ CNAME
 ├─ robots.txt
+├─ Gemfile
+├─ _config.yml
+├─ .github/
+│  └─ workflows/
+│     └─ jekyll.yml
 └─ assets/
    └─ css/
       └─ styles.css

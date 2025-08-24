@@ -1,0 +1,14 @@
+title: Electivus
+description: Ferramentas e extensões para desenvolvedores Salesforce
+url: https://electivus.com
+baseurl: ""
+
+# Keep the repo clean of build artifacts and non-site files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - .devcontainer
+
