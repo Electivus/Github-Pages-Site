@@ -23,7 +23,7 @@
           <span class="name">Electivus</span>
         </div>
         <nav class="nav">
-          <a href="#apex-log-viewer">Apex Log Viewer</a>
+          <a href="{{ '/apex-log-viewer/' | relative_url }}">Apex Log Viewer</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -36,21 +36,18 @@
           <h1>Tools and extensions for Salesforce developers</h1>
           <p>Simple utilities focused on productivity. Start with our Apex log analyzer.</p>
           <div class="cta">
-            <a class="button primary" href="#apex-log-viewer">Explore now</a>
+            <a class="button primary" href="{{ '/apex-log-viewer/' | relative_url }}">Explore now</a>
           </div>
         </div>
       </section>
 
-      <section id="apex-log-viewer" class="section">
+      <!-- Product summary snippet; full details in /apex-log-viewer/ -->
+      <section class="section">
         <div class="container">
           <h2>Apex Log Viewer</h2>
-          <p>View and navigate Apex logs with clarity, practical filters, and quick insights right in your workflow.</p>
-          <ul class="features">
-            <li>Highlight events and errors</li>
-            <li>Filter by category and duration</li>
-            <li>Timeline navigation</li>
-          </ul>
+          <p>Paginated, searchable Apex logs panel for VS Code with filters, sorting, and Apex Replay Debugger integration.</p>
           <div class="cta">
+            <a class="button primary" href="{{ '/apex-log-viewer/' | relative_url }}">Learn more</a>
             <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer">View on GitHub</a>
           </div>
         </div>
