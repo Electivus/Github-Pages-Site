@@ -1,5 +1,6 @@
+---
+---
 User-agent: *
 Allow: /
 
-Sitemap: https://electivus.com/sitemap.xml
-
+Sitemap: {{ site.url | default: "https://electivus.com" }}{{ site.baseurl }}/sitemap.xml
