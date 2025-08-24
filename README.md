@@ -1,26 +1,26 @@
-# Site da organização (GitHub Pages)
+# Organization site (GitHub Pages)
 
-Este diretório contém um site estático pronto para ser publicado no GitHub Pages da organização.
+This directory contains a static site ready to be published to the organization’s GitHub Pages. The deployment is configured to use GitHub Actions to build with the latest Jekyll (instead of the fixed `github-pages` gem).
 
-## Como publicar
+## How to publish
 
-1) Crie o repositório na organização:
+1) Create the repository in the organization (or use this one):
 
-   - Nome do repositório: `Electivus.github.io`
-   - Visibilidade: Public
+   - Option A (recommended for org site): create `Electivus.github.io` (Public)
+   - Option B: enable Pages on this repository (`github-pages-site`)
 
-2) Configure o domínio customizado
+2) Set the custom domain
 
-   - O arquivo `CNAME` já contém `electivus.com`.
-   - No DNS do seu provedor, aponte:
-     - Para usar o domínio raiz `electivus.com`:
-       - Registros `A` para os IPs do GitHub Pages: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-       - (Opcional recomendado) `CNAME` de `www` para `Electivus.github.io` e, nos settings do Pages, marque `Enforce HTTPS`.
-     - Alternativa (se seu DNS suportar ALIAS/ANAME no apex): crie `ALIAS/ANAME` de `electivus.com` apontando para `Electivus.github.io`.
+   - The `CNAME` file already contains `electivus.com`.
+   - In your DNS provider, point:
+     - To use the root domain `electivus.com`:
+       - `A` records to GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+       - (Optional, recommended) `CNAME` from `www` to `Electivus.github.io` and enable `Enforce HTTPS` in Pages settings.
+     - Alternative (if your DNS supports ALIAS/ANAME at apex): create an `ALIAS/ANAME` from `electivus.com` to `Electivus.github.io`.
 
-3) Faça o primeiro push
+3) First push
 
-   Dentro deste diretório (`github-pages-site`):
+   From this directory (`github-pages-site`):
 
    ```bash
    git init -b main
@@ -30,24 +30,36 @@ Este diretório contém um site estático pronto para ser publicado no GitHub Pa
    git push -u origin main
    ```
 
-4) Ative o GitHub Pages
+4) Enable GitHub Pages (via Actions)
 
-   - Em `Settings` → `Pages`, escolha `Source: Deploy from a branch` (branch `main`, pasta `/root`).
-   - Garanta que o campo `Custom domain` esteja `electivus.com`. Salve e ative `Enforce HTTPS` quando disponível.
+   - In `Settings` → `Pages` (in your chosen repo):
+     - Under "Build and deployment", select `Source: GitHub Actions`.
+     - The workflow `.github/workflows/jekyll.yml` already builds with the latest Jekyll and publishes to Pages.
+   - Ensure `Custom domain` is `electivus.com`. Save and enable `Enforce HTTPS` when available.
 
-## Personalização
+   Notes:
+   - The build uses Ruby 3.3 and `jekyll ~> 4.3` (see `Gemfile`).
+   - Existing static files (e.g., `index.html`, `assets/`) continue to work; Jekyll copies them into `_site`.
+   - If you serve as a project site without a custom domain (e.g., `https://<org>.github.io/github-pages-site/`), set `baseurl: "/github-pages-site"` in `_config.yml`.
 
-- Edite `index.html` para atualizar conteúdo, links e visual.
-- O link do apex-log-viewer aponta para `Electivus/apex-log-viewer`.
-- Adicione páginas/ativos conforme necessário (por exemplo, `assets/img/`, `docs/`, etc.).
+## Customize
 
-## Estrutura
+- Edit `index.html` to update content, links, and visuals.
+- The Apex Log Viewer link points to `Electivus/apex-log-viewer`.
+- Add pages/assets as needed (e.g., `assets/img/`, `docs/`, etc.).
+
+## Structure
 
 ```
 github-pages-site/
 ├─ index.html
 ├─ CNAME
 ├─ robots.txt
+├─ Gemfile
+├─ _config.yml
+├─ .github/
+│  └─ workflows/
+│     └─ jekyll.yml
 └─ assets/
    └─ css/
       └─ styles.css

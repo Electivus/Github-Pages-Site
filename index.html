@@ -1,16 +1,19 @@
+---
+---
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Electivus — Ferramentas e Extensões</title>
-    <meta name="description" content="Site oficial da Electivus. Conheça a extensão Apex Log Viewer e nossas ferramentas." />
-    <meta property="og:title" content="Electivus — Ferramentas e Extensões" />
-    <meta property="og:description" content="Conheça a extensão Apex Log Viewer e nossas ferramentas." />
+    <title>Electivus — Tools and Extensions</title>
+    <meta name="description" content="Electivus official site. Discover the Apex Log Viewer extension and our tools." />
+    <meta property="og:title" content="Electivus — Tools and Extensions" />
+    <meta property="og:description" content="Discover the Apex Log Viewer extension and our tools." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://electivus.com/" />
+    <meta property="og:url" content="{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}/" />
+    <link rel="canonical" href="{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23006CFF'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='50' fill='white' font-family='Arial, Helvetica, sans-serif'%3EE%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
   </head>
   <body>
     <header class="site-header">
@@ -21,8 +24,8 @@
         </div>
         <nav class="nav">
           <a href="#apex-log-viewer">Apex Log Viewer</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
@@ -30,10 +33,10 @@
     <main>
       <section class="hero">
         <div class="container">
-          <h1>Ferramentas e extensões para desenvolvedores Salesforce</h1>
-          <p>Utilitários simples, focados em produtividade. Comece pelo nosso analisador de logs Apex.</p>
+          <h1>Tools and extensions for Salesforce developers</h1>
+          <p>Simple utilities focused on productivity. Start with our Apex log analyzer.</p>
           <div class="cta">
-            <a class="button primary" href="#apex-log-viewer">Conhecer agora</a>
+            <a class="button primary" href="#apex-log-viewer">Explore now</a>
           </div>
         </div>
       </section>
@@ -41,36 +44,36 @@
       <section id="apex-log-viewer" class="section">
         <div class="container">
           <h2>Apex Log Viewer</h2>
-          <p>Visualize e navegue por logs Apex com mais clareza, filtros práticos e insights rápidos diretamente no seu fluxo de trabalho.</p>
+          <p>View and navigate Apex logs with clarity, practical filters, and quick insights right in your workflow.</p>
           <ul class="features">
-            <li>Realce de eventos e erros</li>
-            <li>Filtros por categoria e duração</li>
-            <li>Navegação por timeline</li>
+            <li>Highlight events and errors</li>
+            <li>Filter by category and duration</li>
+            <li>Timeline navigation</li>
           </ul>
           <div class="cta">
-            <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer">Ver no GitHub</a>
+            <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer">View on GitHub</a>
           </div>
         </div>
       </section>
 
-      <section id="sobre" class="section alt">
+      <section id="about" class="section alt">
         <div class="container">
-          <h2>Sobre a Electivus</h2>
-          <p>Somos uma organização voltada a criar ferramentas enxutas que destravam o dia a dia de quem desenvolve na plataforma Salesforce.</p>
+          <h2>About Electivus</h2>
+          <p>We create lean tools that unblock everyday work for developers on the Salesforce platform.</p>
         </div>
       </section>
 
-      <section id="contato" class="section">
+      <section id="contact" class="section">
         <div class="container">
-          <h2>Contato</h2>
-          <p>Quer falar com a gente? Envie um e-mail para <a href="mailto:hello@electivus.com">hello@electivus.com</a>.</p>
+          <h2>Contact</h2>
+          <p>Want to reach us? Send an email to <a href="mailto:hello@electivus.com">hello@electivus.com</a>.</p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Electivus. Todos os direitos reservados.</p>
+        <p>© <span id="year"></span> Electivus. All rights reserved.</p>
       </div>
     </footer>
 
