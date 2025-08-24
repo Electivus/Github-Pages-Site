@@ -25,10 +25,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-          bundler-cache: true
+          bundler-cache: false
+
+      - name: Allow lockfile updates (disable frozen)
+        run: bundle config set frozen false
 
       - name: Install dependencies
-        run: bundle install --without development test
+        run: bundle install --jobs 4 --without development test
 
       - name: Build site with Jekyll (latest)
         env:
@@ -50,4 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
