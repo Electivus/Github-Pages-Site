@@ -4,10 +4,10 @@ This directory contains a static site ready to be published to the organizationâ
 
 ## How to publish
 
-1) Create the repository in the organization:
+1) Create the repository in the organization (or use this one):
 
-   - Repository name: `Electivus.github.io`
-   - Visibility: Public
+   - Option A (recommended for org site): create `Electivus.github.io` (Public)
+   - Option B: enable Pages on this repository (`github-pages-site`)
 
 2) Set the custom domain
 
@@ -32,7 +32,7 @@ This directory contains a static site ready to be published to the organizationâ
 
 4) Enable GitHub Pages (via Actions)
 
-   - In `Settings` â†’ `Pages`:
+   - In `Settings` â†’ `Pages` (in your chosen repo):
      - Under "Build and deployment", select `Source: GitHub Actions`.
      - The workflow `.github/workflows/jekyll.yml` already builds with the latest Jekyll and publishes to Pages.
    - Ensure `Custom domain` is `electivus.com`. Save and enable `Enforce HTTPS` when available.

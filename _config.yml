@@ -1,5 +1,5 @@
 title: Electivus
-description: Ferramentas e extensões para desenvolvedores Salesforce
+description: Tools and extensions for Salesforce developers
 url: https://electivus.com
 baseurl: ""
 
@@ -11,4 +11,3 @@ exclude:
   - vendor
   - .github
   - .devcontainer
-
