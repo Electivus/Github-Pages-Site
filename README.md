@@ -40,6 +40,7 @@ This directory contains a static site ready to be published to the organizationâ
    Notes:
    - The build uses Ruby 3.3 and `jekyll ~> 4.3` (see `Gemfile`).
    - Existing static files (e.g., `index.html`, `assets/`) continue to work; Jekyll copies them into `_site`.
+   - If you serve as a project site without a custom domain (e.g., `https://<org>.github.io/github-pages-site/`), set `baseurl: "/github-pages-site"` in `_config.yml`.
 
 ## Customize
 
