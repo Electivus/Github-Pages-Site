@@ -8,3 +8,5 @@ group :development do
   gem "webrick", "~> 1.8"
 end
 
+# Generate sitemap.xml automatically based on site.url/baseurl
+gem "jekyll-sitemap", "~> 1.4"

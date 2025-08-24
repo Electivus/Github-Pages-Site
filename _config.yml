@@ -11,3 +11,6 @@ exclude:
   - vendor
   - .github
   - .devcontainer
+
+plugins:
+  - jekyll-sitemap
