@@ -1,0 +1,177 @@
+---
+title: Apex Log Viewer — Electivus
+layout: none
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apex Log Viewer — Electivus</title>
+    <meta name="description" content="A paginated, searchable Apex logs panel for VS Code with filters, sorting, and Apex Replay Debugger integration." />
+    <meta property="og:title" content="Apex Log Viewer — Electivus" />
+    <meta property="og:description" content="A paginated, searchable Apex logs panel for VS Code with filters, sorting, and Apex Replay Debugger integration." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}{{ page.url }}" />
+    <link rel="canonical" href="{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}{{ page.url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    <link rel="icon" href="{{ '/assets/img/icon-apex-log-viewer.svg' | relative_url }}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Apex Log Viewer",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "softwareVersion": "0.0.1",
+        "author": { "@type": "Organization", "name": "Electivus", "url": "{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}/" },
+        "description": "A paginated, searchable Apex logs panel for VS Code with filters, sorting, and Apex Replay Debugger integration.",
+        "url": "{{ site.url | default: 'https://electivus.com' }}{{ site.baseurl }}{{ page.url }}",
+        "downloadUrl": "https://github.com/Electivus/apex-log-viewer/releases",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <style>
+      .page-hero { padding: 56px 0 24px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%); }
+      .page-hero .title { display: flex; align-items: center; gap: 12px; }
+      .page-hero .title img { width: 36px; height: 36px; border-radius: 8px; }
+      .badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+      .badge { display: inline-block; padding: 2px 8px; font-size: 12px; border-radius: 999px; background: #eef2ff; color: #1e40af; border: 1px solid #e5e7eb; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      pre { background: #0e1726; color: #e5e7eb; padding: 12px 14px; border-radius: 8px; overflow: auto; border: 1px solid var(--border); }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; }
+      .muted { color: var(--muted); }
+      .list-tight { margin: 8px 0 0; padding-left: 18px; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="logo">E</span>
+          <span class="name">Electivus</span>
+        </div>
+        <nav class="nav">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/apex-log-viewer/' | relative_url }}">Apex Log Viewer</a>
+          <a href="{{ '/#about' | relative_url }}">About</a>
+          <a href="{{ '/#contact' | relative_url }}">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="title">
+            <img alt="Apex Log Viewer icon" src="{{ '/assets/img/icon-apex-log-viewer.svg' | relative_url }}" />
+            <h1 style="margin:0">Apex Log Viewer</h1>
+          </div>
+          <p class="muted">A paginated, searchable Apex logs panel for VS Code with filters, sorting, and Apex Replay Debugger integration.</p>
+          <div class="cta" style="margin-top:10px">
+            <a class="button primary" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer">View on GitHub</a>
+            <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer/releases">Download VSIX</a>
+          </div>
+          <div class="badges">
+            <span class="badge">VS Code 1.87+</span>
+            <span class="badge">Salesforce CLI (sf or sfdx)</span>
+            <span class="badge">Replay Debugger integration</span>
+            <span class="badge">English & Portuguese (pt-BR)</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid">
+            <div>
+              <h2>Key features</h2>
+              <ul class="list-tight">
+                <li>Paginated log list with columns: User, Application, Operation, Time, Status, Code Unit, Size.</li>
+                <li>Client-side quick search and filters (User, Operation, Status, Code Unit).</li>
+                <li>Sortable columns with sensible defaults (Time/Size desc).</li>
+                <li>Open logs or launch Apex Replay Debugger from the list.</li>
+                <li>Tail logs in real time via Salesforce CLI.</li>
+                <li>Org selection via toolbar or command palette.</li>
+                <li>Infinite scroll and configurable page size.</li>
+                <li>Localization: English and pt-BR.</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Requirements</h2>
+              <ul class="list-tight">
+                <li>VS Code 1.87+.</li>
+                <li>Salesforce CLI: <code>sf</code> (recommended) or legacy <code>sfdx</code>.</li>
+                <li>Optional: Salesforce Apex Replay Debugger.</li>
+              </ul>
+              <h3>Authenticate</h3>
+              <pre><code>sf org login web   # or: sfdx force:auth:web:login
+sf org list        # verify orgs</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="grid">
+            <div>
+              <h2>Install</h2>
+              <p><strong>Option A — VSIX</strong></p>
+              <ol>
+                <li>Download the latest <code>.vsix</code> from Releases.</li>
+                <li>In VS Code, run: <em>Extensions: Install from VSIX…</em></li>
+              </ol>
+              <p><strong>Option B — Development</strong></p>
+              <pre><code>git clone https://github.com/Electivus/apex-log-viewer.git
+cd apex-log-viewer
+npm install
+npm run build
+# Press F5 to launch the Extension Development Host
+</code></pre>
+            </div>
+            <div>
+              <h2>Commands</h2>
+              <ul class="list-tight">
+                <li><code>Apex Logs: Refresh Logs</code> — command id <code>sfLogs.refresh</code></li>
+                <li><code>Apex Logs: Select Org</code> — command id <code>sfLogs.selectOrg</code></li>
+                <li><code>Apex Logs: Tail Logs</code> — command id <code>sfLogs.tail</code></li>
+              </ul>
+              <h2 style="margin-top:18px">Settings</h2>
+              <ul class="list-tight">
+                <li><code>sfLogs.pageSize</code>: logs per page (10–200; default 100)</li>
+                <li><code>sfLogs.headConcurrency</code>: concurrent header requests (1–20; default 5)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Troubleshooting</h2>
+          <ul class="list-tight">
+            <li><strong>CLI not found</strong>: Ensure <code>sf</code> (or <code>sfdx</code>) is on PATH. On macOS/Linux, start VS Code from a shell session that has PATH configured.</li>
+            <li><strong>Replay Debugger fails to launch</strong>: Install the Salesforce Apex Replay Debugger extension.</li>
+            <li><strong>No orgs detected</strong>: Authenticate with <code>sf org login web</code> and verify with <code>sf org list</code>.</li>
+          </ul>
+          <div class="cta" style="margin-top:12px">
+            <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer/blob/main/CHANGELOG.md">Changelog</a>
+            <a class="button" target="_blank" rel="noopener" href="https://github.com/Electivus/apex-log-viewer/issues">Report an issue</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Electivus. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+  </html>
+
