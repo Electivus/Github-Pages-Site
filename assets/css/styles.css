@@ -50,6 +50,10 @@ body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarel
     --border: #1f2937;
   }
   body { background: #0a0f1a; color: var(--text); }
+  /* Improve hero contrast on dark mode */
+  .hero { background: linear-gradient(180deg, rgba(10,15,26,1) 0%, rgba(13,20,33,1) 40%, rgba(16,24,39,1) 100%); }
+  .hero h1 { color: var(--text); }
+  .hero p { color: #cbd5e1; }
   .section.alt { background: #0b1220; }
   .nav a { color: var(--text); }
   .button { background: #0e1726; color: var(--text); border-color: var(--border); }
