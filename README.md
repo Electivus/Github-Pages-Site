@@ -45,7 +45,7 @@ This directory contains a static site ready to be published to the organizationâ
 ## Customize
 
 - Edit `index.html` to update content, links, and visuals.
-- The Apex Log Viewer link points to `Electivus/apex-log-viewer`.
+- The Apex Log Viewer link points to `Electivus/Apex-Log-Viewer`.
 - Add pages/assets as needed (e.g., `assets/img/`, `docs/`, etc.).
 
 ## Structure
